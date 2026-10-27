@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#0a1627">
+ <meta name="description" content="From the lights of Las Vegas to the slopes of Lee Canyon. Plan your mountain day with Vegas Ski & Snowboarding Shuttle. Request round-trip shuttle availability, with no account required.">
+ <meta name="robots" content="index,follow">
+ <link rel="canonical" href="https://vegasskishuttle.com/">
+ <meta property="og:type" content="website">
+ <meta property="og:title" content="Vegas Ski & Snowboarding Shuttle | From the Strip to the Slopes">
+ <meta property="og:description" content="Trade neon for snow. Lee Canyon mountain-day transportation from Las Vegas. Request availability today.">
+ <meta property="og:url" content="https://vegasskishuttle.com/">
+ <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="preconnect" href="https://images.unsplash.com">
+ <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
+ <script src="script.js" defer></script>
+ <title>Vegas Ski & Snowboarding Shuttle | From the Strip to the Slopes</title>
+</head>
+<body>
+ <a class="skip-link" href="#main">Skip to content</a>
+ <div class="topbar">
+ <div class="container topbar-inner">
+ <span class="topbar-item"><span class="pulse-dot" aria-hidden="true"></span> WINTER 2026/27 · PLAN YOUR MOUNTAIN DAY</span>
+ <a href="tel:+17025088110" class="topbar-phone">Questions? <strong>(702) 508-8110</strong> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+ </div>
+ </div>
+ <header class="site-header" id="top">
+ <div class="container nav-inner">
+ <a href="#top" class="brand" aria-label="Vegas Ski and Snowboarding Shuttle homepage">
+ <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 58 53" fill="none"><path d="M4 42 20 17l9 13L40 8l15 34" stroke="#F7FCFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="m30 24 10-16 9 24" stroke="#FF6744" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 49h51" stroke="#FF6744" stroke-width="5" stroke-linecap="round"/></svg></span>
+ <span class="brand-copy"><strong>VEGAS<span>SKI</span>SHUTTLE</strong><small>SKI & SNOWBOARDING TRANSPORTATION</small></span>
+ </a>
+ <nav class="desktop-nav" aria-label="Main navigation">
+ <a href="#destinations">Destinations</a>
+ <a href="#how-it-works">How it works</a>
+ <a href="#schedule">The day</a>
+ <a href="#faq">FAQs</a>
+ </nav>
+ <a class="nav-cta" href="#booking">REQUEST A SEAT <span aria-hidden="true">↗</span></a>
+ <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu"><span></span><span></span><span></span></button>
+ </div>
+ <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden>
+ <a href="#destinations">Destinations</a><a href="#how-it-works">How it works</a><a href="#schedule">The day</a><a href="#faq">FAQs</a><a href="#booking" class="mobile-book">Request a seat ↗</a>
+ </nav>
+ </header>
+ <main id="main">
+ <section class="hero" aria-labelledby="hero-heading">
+ <div class="hero-photo" aria-hidden="true"></div><div class="hero-shade" aria-hidden="true"></div>
+ <div class="hero-grain" aria-hidden="true"></div>
+ <div class="container hero-content">
+ <div class="hero-main">
+ <div class="eyebrow light"><span class="eyebrow-line"></span> LAS VEGAS, MEET THE MOUNTAINS</div>
+ <h1 id="hero-heading">TRADE THE<br><em>STRIP</em> FOR<br><span>THE SLOPES.</span></h1>
+ <p class="hero-description">Big mountain energy. Zero rental car headaches. Your escape from Las Vegas to Lee Canyon starts right here.</p>
+ <div class="hero-buttons"><a class="btn btn-orange" href="#booking">PLAN MY RIDE <span>↗</span></a><a class="btn btn-ghost" href="#how-it-works"><span class="play-icon">▶</span> HOW IT WORKS</a></div>
+ <div class="hero-micro"><span class="micro-symbol">✳</span> BUILT FOR SKIERS, BOARDERS & SNOW-CHASERS</div>
+ </div>
+ <div class="hero-float-card" aria-label="Lee Canyon featured trip">
+ <div class="float-top"><span class="float-icon">↗</span><span>FEATURED DAY TRIP</span></div>
+ <div class="float-destination">LEE<br>CANYON<span>.</span></div>
+ <div class="float-divider"></div>
+ <div class="float-row"><span>DEPART LAS VEGAS</span><strong>8:00 AM</strong></div>
+ <div class="float-row"><span>RETURN DEPARTURE</span><strong>5:00 PM</strong></div>
+ <div class="float-bottom"><span>ROUND TRIP<br><strong>$200</strong> <small>/ person</small></span><a href="#booking" aria-label="Request Lee Canyon trip">↗</a></div>
+ </div>
+ </div>
+ <div class="hero-edge"><div class="container"><span>01 / THE ESCAPE</span><span>SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span></div></div>
+ </section>
+
+ <section class="quick-book-wrap" aria-label="Quick trip inquiry">
+ <div class="container"><form class="quick-book" id="quickForm">
+ <div class="quick-heading"><span>YOUR NEXT<br><strong>SNOW DAY.</strong></span><span class="quick-heading-mark">↗</span></div>
+ <label class="quick-field">DESTINATION<select name="destination" id="quickDestination"><option value="Lee Canyon">Lee Canyon</option><option value="Brian Head">Brian Head</option><option value="Arizona Snowbowl">Arizona Snowbowl</option></select></label>
+ <label class="quick-field">TRAVEL DATE<input id="quickDate" name="date" type="date" aria-label="Travel date"></label>
+ <label class="quick-field">RIDERS<select id="quickRiders" name="riders"><option value="1">1 rider</option><option value="2" selected>2 riders</option><option value="3">3 riders</option><option value="4">4 riders</option><option value="5">5 riders</option><option value="6+">6+ riders</option></select></label>
+ <button type="submit" class="quick-submit">LET'S GO <span>↗</span></button>
+ </form></div>
+ </section>
+
+ <section class="intro-section section" id="about">
+ <div class="container intro-grid">
+ <div class="intro-text"><div class="eyebrow dark"><span class="eyebrow-line"></span> LESS DRIVING. MORE RIDING.</div><h2>DESERT NIGHTS.<br><span>POWDER DAYS.</span></h2><p>There's more to Las Vegas than bright lights. Just beyond the city, the Spring Mountains are waiting with crisp mountain air, winter views, and chairlift days.</p><p>We make the ride part simple. Whether you're visiting the Strip or you're a local looking for a snow day, we help you plan the trip without worrying about mountain driving and parking.</p><a href="#destinations" class="text-link">EXPLORE DESTINATIONS <span>↗</span></a></div>
+ <div class="intro-visual"><div class="intro-image" role="img" aria-label="Snowy alpine mountain and ski lifts"></div><div class="intro-stamp"><span>THE PRICE IS<br>A GAMBLE.</span><strong>YOUR RIDE<br>ISN'T.</strong><b>✳</b></div><div class="intro-visual-label">THE OTHER SIDE OF LAS VEGAS <span>↗</span></div></div>
+ </div>
+ </section>
+
+ <section class="dest-section section" id="destinations">
+ <div class="container">
+ <div class="section-heading"><div><div class="eyebrow dark"><span class="eyebrow-line"></span> PICK YOUR PLAYGROUND</div><h2>CHASE THE <span>SNOW.</span></h2></div><p>One easy mountain escape, or a bigger adventure. Tell us where you're headed—we'll help with the transportation plan.</p></div>
+ <div class="dest-grid">
+ <article class="dest-card featured"><div class="dest-image lee-img" role="img" aria-label="Snowy slopes and ski lift"></div><div class="dest-overlay"></div><div class="dest-tag">MOST POPULAR</div><div class="dest-content"><div class="dest-kicker">NEVADA / SPRING MOUNTAINS</div><h3>LEE CANYON<span>.</span></h3><p>Las Vegas' backyard mountain escape.</p><div class="dest-bottom"><div><span>ROUND-TRIP TRANSPORT</span><strong>$200 <small>/ person</small></strong></div><button type="button" class="dest-arrow" data-destination="Lee Canyon" aria-label="Request Lee Canyon availability">↗</button></div></div></article>
+ <article class="dest-card"><div class="dest-image brian-img" role="img" aria-label="Dramatic snow-covered mountain scenery"></div><div class="dest-overlay"></div><div class="dest-content"><div class="dest-kicker">UTAH / SOUTHERN UTAH</div><h3>BRIAN HEAD<span>.</span></h3><p>Turn the mountain day into a road trip.</p><div class="dest-bottom"><div><span>LONGER-DISTANCE TRIP</span><strong class="ask-quote">REQUEST A QUOTE</strong></div><button type="button" class="dest-arrow" data-destination="Brian Head" aria-label="Request Brian Head availability">↗</button></div></div></article>
+ <article class="dest-card"><div class="dest-image arizona-img" role="img" aria-label="Snowy evergreen forest in the mountains"></div><div class="dest-overlay"></div><div class="dest-content"><div class="dest-kicker">ARIZONA / FLAGSTAFF</div><h3>SNOWBOWL<span>.</span></h3><p>A change of scenery worth the drive.</p><div class="dest-bottom"><div><span>LONGER-DISTANCE TRIP</span><strong class="ask-quote">REQUEST A QUOTE</strong></div><button type="button" class="dest-arrow" data-destination="Arizona Snowbowl" aria-label="Request Snowbowl availability">↗</button></div></div></article>
+ </div>
+ <p class="fineprint dest-note">Trip availability and pickup locations require confirmation. The featured 8 AM / 5 PM itinerary applies to the planned Lee Canyon day trip only. Resort lift tickets and rentals are purchased separately.</p>
+ </div>
+ </section>
+
+ <section class="how-section section" id="how-it-works">
+ <div class="container"><div class="section-heading on-dark"><div><div class="eyebrow light"><span class="eyebrow-line"></span> SIMPLE BY DESIGN</div><h2>3 STEPS TO <span>THE SLOPES.</span></h2></div><p>From your first click to mountain views, we've kept the experience straightforward.</p></div>
+ <div class="steps-grid">
+ <div class="step-card"><div class="step-num">01<span>↗</span></div><div class="step-icon"><svg viewBox="0 0 64 64" fill="none"><rect x="10" y="14" width="44" height="41" rx="6" stroke="currentColor" stroke-width="2"/><path d="M10 25h44M23 9v11m18-11v11M22 35h7v7h-7zM35 35h7v7h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>PICK YOUR DAY</h3><p>Choose your destination, date, number of riders, and preferred pickup area.</p></div>
+ <div class="step-card"><div class="step-num">02<span>↗</span></div><div class="step-icon"><svg viewBox="0 0 64 64" fill="none"><rect x="6" y="21" width="52" height="26" rx="6" stroke="currentColor" stroke-width="2"/><path d="M16 21v-6h30v6M6 36h52M19 36v-15m26 15V21M17 51h0m30 0h0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="17" cy="49" r="5" fill="currentColor"/><circle cx="47" cy="49" r="5" fill="currentColor"/></svg></div><h3>CONFIRM YOUR RIDE</h3><p>Send an availability inquiry. We'll confirm the schedule, pickup details, pricing, and booking arrangements.</p></div>
+ <div class="step-card"><div class="step-num">03<span>↗</span></div><div class="step-icon"><svg viewBox="0 0 64 64" fill="none"><path d="m6 49 18-28 10 15 11-23 13 36H6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m20 28 4-7 6 9m11-8 4-9 5 14" stroke="currentColor" stroke-width="2"/><path d="M8 54h48" stroke="currentColor" stroke-width="2"/></svg></div><h3>GO MAKE TRACKS</h3><p>Meet at your confirmed pickup location, bring your gear, and enjoy your mountain day.</p></div>
+ </div>
+ </div>
+ </section>
+
+ <section class="schedule-section section" id="schedule"><div class="container schedule-grid">
+ <div class="schedule-copy"><div class="eyebrow dark"><span class="eyebrow-line"></span> THE LEE CANYON DAY PLAN</div><h2>ONE DAY.<br><span>A LOT OF MOUNTAIN.</span></h2><p>More slope time. Less logistics. Here's the planned rhythm for our Lee Canyon day trip.</p><div class="timeline">
+ <div class="time-entry"><div class="time-indicator"><span></span></div><div class="time-label">8:00 <small>AM</small></div><div><strong>Roll out of Las Vegas</strong><p>Depart from your confirmed pickup meeting point.</p></div></div>
+ <div class="time-entry"><div class="time-indicator"><span></span></div><div class="time-label">DAY <small>TIME</small></div><div><strong>Make the most of Lee Canyon</strong><p>Ski, snowboard, explore, and grab some mountain air.</p></div></div>
+ <div class="time-entry"><div class="time-indicator"><span></span></div><div class="time-label">5:00 <small>PM</small></div><div><strong>Head back toward Vegas</strong><p>Planned departure from the mountain for the return trip.</p></div></div>
+ </div><p class="fineprint">All times are planned, not guaranteed. Traffic, road closures, weather, and resort operations may affect departures. The exact pickup and drop-off location is provided when your trip is confirmed.</p></div>
+ <div class="schedule-image"><div class="schedule-image-bg" role="img" aria-label="Skier and snow-covered mountain view"></div><div class="schedule-photo-label"><span>LAS VEGAS → LEE CANYON</span><strong>THE ROAD TO YOUR NEXT STORY <span>↗</span></strong></div></div>
+ </div></section>
+
+ <section class="promo-strip" aria-label="Promotional offer"><div class="container promo-inner"><div class="promo-star" aria-hidden="true">✳</div><div><span class="promo-small">A LITTLE VEGAS MAGIC</span><h2>THE PRICE IS A GAMBLE.<br><em>YOUR RIDE ISN'T.</em></h2><p>Ask us about our <strong>$50-back promotional offer</strong> when requesting your Lee Canyon ride. We'll explain the current terms before any payment.</p></div><a class="btn btn-dark" href="#booking">ASK ABOUT THE OFFER <span>↗</span></a></div></section>
+
+ <section class="booking-section section" id="booking"><div class="container booking-grid">
+ <div class="booking-intro"><div class="eyebrow light"><span class="eyebrow-line"></span> YOUR NEXT MOUNTAIN DAY STARTS HERE</div><h2>LET'S GET<br><span>YOU UP THERE.</span></h2><p>Pick your details and send a no-obligation availability request. No account. No card details. No guessing.</p>
+ <div class="booking-perks"><div><span>↗</span> NO ACCOUNT REQUIRED</div><div><span>↗</span> HUMAN BOOKING CONFIRMATION</div><div><span>↗</span> NO PAYMENT ON THIS FORM</div></div>
+ <div class="booking-contact"><span>HAVE A QUESTION?</span><a href="tel:+17025088110">(702) 508-8110 <span>↗</span></a></div>
+ </div>
+ <div class="form-card">
+ <div class="form-card-top"><div><span class="form-kicker">REQUEST AVAILABILITY</span><h3>LET'S PLAN YOUR TRIP.</h3></div><div class="form-badge">✳</div></div>
+ <form id="bookingForm" novalidate>
+ <div class="field-row"><label>YOUR NAME <span>*</span><input type="text" id="name" name="name" placeholder="Full name" autocomplete="name" required></label><label>EMAIL ADDRESS <span>*</span><input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required></label></div>
+ <div class="field-row"><label>PHONE NUMBER <span>*</span><input type="tel" id="phone" name="phone" placeholder="(702) 555-0123" autocomplete="tel" required></label><label>PREFERRED DATE <span>*</span><input type="date" id="tripDate" name="tripDate" required></label></div>
+ <div class="field-row"><label>DESTINATION <span>*</span><select id="destination" name="destination" required><option value="Lee Canyon">Lee Canyon</option><option value="Brian Head">Brian Head, Utah</option><option value="Arizona Snowbowl">Arizona Snowbowl</option></select></label><label>NUMBER OF RIDERS <span>*</span><select id="riders" name="riders" required><option value="1">1 rider</option><option value="2" selected>2 riders</option><option value="3">3 riders</option><option value="4">4 riders</option><option value="5">5 riders</option><option value="6+">6+ riders / group</option></select></label></div>
+ <div class="field-row"><label>PREFERRED PICKUP AREA<select id="pickup" name="pickup"><option value="Las Vegas Strip">Las Vegas Strip</option><option value="Downtown Las Vegas">Downtown Las Vegas</option><option value="Henderson">Henderson</option><option value="Other Las Vegas Valley location">Other Las Vegas Valley location</option></select></label><label>BRINGING SKIS / BOARDS?<select id="gear" name="gear"><option value="Yes">Yes</option><option value="No">No</option><option value="Not sure">Not sure yet</option></select></label></div>
+ <label class="wide-label">ANYTHING WE SHOULD KNOW?<textarea name="message" id="message" rows="3" placeholder="Hotel, pickup details, group questions, promotional offer inquiry…"></textarea></label>
+ <div id="rateEstimate" class="rate-estimate" aria-live="polite"><span>LEE CANYON REFERENCE RATE</span><strong>$200 <small>/ rider · round trip</small></strong></div>
+ <label class="consent"><input id="consent" type="checkbox" required><span>I understand this sends an inquiry, not a confirmed reservation. The next step opens an email draft that I must send. <b>*</b></span></label>
+ <button type="submit" class="form-submit">PREPARE MY BOOKING REQUEST <span>↗</span></button>
+ <p id="formFeedback" class="form-feedback" role="status" aria-live="polite">Your email app will open with the request filled in. Please send that message to complete your inquiry.</p>
+ <button type="button" id="copyRequest" class="copy-request">EMAIL APP NOT WORKING? COPY REQUEST DETAILS <span>↗</span></button>
+ </form>
+ </div>
+ </div></section>
+
+ <section class="faq-section section" id="faq"><div class="container faq-grid"><div><div class="eyebrow dark"><span class="eyebrow-line"></span> GOOD TO KNOW</div><h2>QUESTIONS?<br><span>WE GOT YOU.</span></h2><p class="faq-help">Still need answers?<br><a href="tel:+17025088110">Give us a call ↗</a></p></div>
+ <div class="accordion">
+ <details><summary>Is my seat confirmed when I fill out the form?<span>+</span></summary><p>No. This website helps you prepare an availability inquiry through your email app. Your reservation is only confirmed after our team responds with pickup details and any applicable payment instructions.</p></details>
+ <details><summary>Are lift tickets and rentals included?<span>+</span></summary><p>No. Transportation is separate from resort lift tickets, rental equipment, lessons, and other resort charges. Buy resort services directly from the resort. See <a href="https://www.leecanyonlv.com/" target="_blank" rel="noopener noreferrer">Lee Canyon's official website</a> for current availability.</p></details>
+ <details><summary>Where will you pick me up?<span>+</span></summary><p>Tell us your preferred pickup area—Las Vegas Strip, Downtown, Henderson, or another Las Vegas Valley location. We will confirm the exact meeting point and whether your requested pickup is available before booking.</p></details>
+ <details><summary>Can I bring my skis or snowboard?<span>+</span></summary><p>Tell us how much equipment you're bringing when you inquire. We will confirm the available vehicle and gear capacity before accepting the reservation.</p></details>
+ <details><summary>What is the $50-back offer?<span>+</span></summary><p>We're promoting a potential $50-back offer for Lee Canyon bookings. Eligibility, how the offer works, and any restrictions must be confirmed in writing before you purchase. The advertised round-trip price is $200 per rider; do not assume the offer is an automatic discount.</p></details>
+ <details><summary>What happens if the mountain closes or roads are restricted?<span>+</span></summary><p>Mountain conditions can change fast. Transportation operates only when conditions and access permit. We will explain weather-related changes and any cancellation or refund terms before confirming your reservation.</p></details>
+ <details><summary>Is this an official Lee Canyon resort shuttle?<span>+</span></summary><p>No. Vegas Ski & Snowboarding Shuttle is an independent transportation concept and is not represented as owned, operated, or endorsed by Lee Canyon.</p></details>
+ </div>
+ </div></section>
+ </main>
+ <footer class="site-footer"><div class="container"><div class="footer-main"><div class="footer-lead"><a href="#top" class="brand footer-brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 58 53" fill="none"><path d="M4 42 20 17l9 13L40 8l15 34" stroke="#F7FCFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="m30 24 10-16 9 24" stroke="#FF6744" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 49h51" stroke="#FF6744" stroke-width="5" stroke-linecap="round"/></svg></span><span class="brand-copy"><strong>VEGAS<span>SKI</span>SHUTTLE</strong><small>SKI & SNOWBOARDING TRANSPORTATION</small></span></a><p>THE PRICE IS A GAMBLE.<br>YOUR RIDE ISN'T.</p></div><div class="footer-links"><span>EXPLORE</span><a href="#destinations">Destinations</a><a href="#how-it-works">How it works</a><a href="#schedule">The day</a><a href="#faq">FAQs</a></div><div class="footer-links"><span>GET IN TOUCH</span><a href="tel:+17025088110">(702) 508-8110</a><a href="mailto:unitedpaintersww@gmail.com?subject=Vegas%20Ski%20Shuttle%20Question">Email our team</a><a href="#booking">Request availability</a></div></div><div class="footer-bottom"><span>© <span id="year">2026</span> VEGAS SKI & SNOWBOARDING SHUTTLE</span><span>INDEPENDENT TRANSPORTATION · NOT AFFILIATED WITH SKI RESORT OPERATORS</span><div><a href="privacy.html">PRIVACY</a><a href="terms.html">TERMS</a><a href="#top">BACK TO TOP ↑</a></div></div></div></footer>
+ <div class="mobile-sticky" id="mobileSticky"><span>LEE CANYON <strong>$200</strong></span><a href="#booking">REQUEST A SEAT ↗</a></div>
+</body>
+</html>
