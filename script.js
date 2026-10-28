@@ -91,3 +91,118 @@ copyBtn.addEventListener('click', async () => {
  const t = document.createElement('textarea');t.value=msg;document.body.appendChild(t);t.select();try{document.execCommand('copy');feedback.textContent = `Request copied. Email it to ${BOOKING_EMAIL}.`;}catch(e2){feedback.textContent = `Copy failed. Please use your email app or call (702) 508-8110.`;}t.remove();
  }
 });
+
+
+// Official NOAA/NWS point forecasts — no API key, no private location data.
+// The initial period represents an upcoming forecast, NOT a weather-station observation.
+const FORECAST_POINTS = {
+ vegas: [36.1699,-115.1398],
+ lee: [36.302,-115.679],
+ brian: [37.692,-112.848],
+ snowbowl: [35.33,-111.71]
+};
+const weatherRefresh = document.getElementById('weatherRefresh');
+const weatherStatus = document.getElementById('weatherStatus');
+const weatherCards = [...document.querySelectorAll('[data-forecast]')];
+const WEATHER_CACHE_MS = 15*60*1000;
+const symbolForWeather = description => {
+ const s = String(description||'').toLowerCase();
+ if(/thunder|lightning/.test(s))return '⛈️';
+ if(/snow|flurr|blizzard/.test(s))return '❄️';
+ if(/sleet|ice|freezing/.test(s))return '🌨️';
+ if(/rain|shower|drizzle/.test(s))return '🌧️';
+ if(/fog|haze|smoke/.test(s))return '🌫️';
+ if(/mostly sunny|partly sunny|partly cloudy/.test(s))return '⛅';
+ if(/cloud|overcast/.test(s))return '☁️';
+ if(/clear|sun/.test(s))return '☀️';
+ return '🌤️';
+};
+const forecastWeekday = value => {
+ try { return new Date(value).toLocaleDateString('en-US',{weekday:'short'}); }
+ catch(e) { return ''; }
+};
+const setWeatherError = (card) => {
+ card.querySelector('.weather-icon').textContent='↗';
+ card.querySelector('.weather-temp').textContent='--°';
+ card.querySelector('.weather-desc').textContent='Forecast temporarily unavailable';
+ card.querySelector('.weather-wind').textContent='Try refreshing or use the official forecast link.';
+ card.querySelector('.weather-days').replaceChildren();
+};
+function renderWeather(card,forecast) {
+ const periods=forecast?.properties?.periods;
+ if(!Array.isArray(periods)||!periods.length)throw new Error('No forecast periods');
+ const first=periods[0];
+ const degrees = Number(first.temperature);
+ card.querySelector('.weather-icon').textContent=symbolForWeather(first.shortForecast);
+ card.querySelector('.weather-temp').textContent=Number.isFinite(degrees)?Math.round(degrees)+'°'+(first.temperatureUnit||'F'):'--°';
+ card.querySelector('.weather-desc').textContent=first.shortForecast||'Weather details pending';
+ card.querySelector('.weather-wind').textContent='Wind: '+(first.windSpeed||'not reported')+(first.windDirection?' '+first.windDirection:'')+' · '+(first.name||'next period');
+ const container=card.querySelector('.weather-days');
+ container.replaceChildren();
+ const days=periods.filter(p=>p.isDaytime).slice(0,3);
+ for(const p of days){
+  const row=document.createElement('div');
+  row.className='weather-day';
+  const day=document.createElement('span');
+  day.className='weather-day-name';
+  day.textContent=forecastWeekday(p.startTime) || p.name || 'Upcoming';
+  const detail=document.createElement('span');
+  detail.className='weather-day-details';
+  const temp=document.createElement('strong');
+  temp.textContent=(Number.isFinite(Number(p.temperature))?Math.round(Number(p.temperature))+'°':'--°');
+  const condition=document.createElement('span');
+  condition.textContent=' · '+(p.shortForecast||'Forecast');
+  detail.append(temp,condition);
+  row.append(day,detail);
+  container.appendChild(row);
+ }
+ if(!days.length){
+  const msg=document.createElement('p');
+  msg.className='weather-loading';
+  msg.textContent='Daily breakdown not available. Open the detailed forecast.';
+  container.appendChild(msg);
+ }
+}
+async function getNwsJson(url){
+ const response=await fetch(url,{headers:{Accept:'application/geo+json'}});
+ if(!response.ok)throw new Error('NWS '+response.status);
+ return response.json();
+}
+async function getPointForecast(key,force){
+ const coords=FORECAST_POINTS[key];
+ if(!coords)throw new Error('Unknown weather point');
+ const cacheKey='vss-weather-'+key;
+ if(!force){
+  try{
+   const saved=JSON.parse(sessionStorage.getItem(cacheKey)||'null');
+   if(saved && Date.now()-saved.saved<WEATHER_CACHE_MS && saved.data?.properties?.periods?.length)return saved.data;
+  }catch(e){/* Private browsing may block storage. Fetch forecast instead. */}
+ }
+ const point=await getNwsJson('https://api.weather.gov/points/'+coords.join(','));
+ const url=point?.properties?.forecast;
+ if(typeof url!=='string'||!url.startsWith('https://api.weather.gov/'))throw new Error('Missing official forecast URL');
+ const forecast=await getNwsJson(url);
+ try{sessionStorage.setItem(cacheKey,JSON.stringify({saved:Date.now(),data:forecast}));}catch(e){/* no storage permission */}
+ return forecast;
+}
+async function loadWeather(force=false) {
+ weatherRefresh.disabled=true;
+ weatherRefresh.textContent='↻ UPDATING…';
+ weatherStatus.textContent='Checking National Weather Service forecasts…';
+ const results=await Promise.allSettled(weatherCards.map(async card=>{
+  const key=card.dataset.forecast;
+  const data=await getPointForecast(key,force);
+  renderWeather(card,data);
+  return true;
+ }));
+ const ok=results.filter(r=>r.status==='fulfilled').length;
+ results.forEach((result,i)=>{if(result.status==='rejected')setWeatherError(weatherCards[i]);});
+ const now=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+ weatherStatus.textContent=ok===weatherCards.length?'Forecasts loaded · Checked '+now:ok?'Forecasts loaded for '+ok+' of '+weatherCards.length+' locations · Checked '+now:'Weather service unavailable · Select an official NWS forecast link below.';
+ weatherRefresh.disabled=false;
+ weatherRefresh.textContent='↻ REFRESH WEATHER';
+}
+if(weatherRefresh&&weatherStatus&&weatherCards.length){
+ weatherRefresh.addEventListener('click',()=>loadWeather(true));
+ loadWeather();
+}
