@@ -29,11 +29,12 @@ mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', (
  menuToggle.setAttribute('aria-label','Open menu');
 }));
 
+const tripPrice = riders => 200 + Math.max(0, Number(riders) - 2) * 50;
 const updateEstimate = () => {
- const dest = $('destination').value, riders = $('riders').value;
+ const dest = $('destination').value, riders = Number($('riders').value);
  if(dest === 'Lee Canyon') {
- const total = Number(riders);
- rateEstimate.innerHTML = `<span>LEE CANYON · ROUND TRIP</span><strong>${Number.isFinite(total) ? `$${(total*200).toLocaleString('en-US')}` : 'GROUP RATE'} <small>${Number.isFinite(total) ? `for ${riders} rider${total===1?'':'s'} · $200 each` : 'inquire for 6+ riders'}</small></strong>`;
+ const total = tripPrice(riders);
+ rateEstimate.innerHTML = `<span>LEE CANYON · ROUND TRIP · MAX 4 PEOPLE</span><strong>$${total.toLocaleString('en-US')} <small>total for ${riders} passenger${riders===1?'':'s'} · $200 includes up to 2, +$50 each additional</small></strong>`;
  } else {
  rateEstimate.innerHTML = `<span>${dest.toUpperCase()} · LONGER-DISTANCE TRIP</span><strong>REQUEST A CUSTOM QUOTE</strong>`;
  }
@@ -61,7 +62,7 @@ function getRequestText(){
  const data = new FormData(bookingForm);
  const val = name => String(data.get(name) || '').trim();
  const dateLabel = val('tripDate') ? new Date(`${val('tripDate')}T12:00:00`).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}) : '(not selected)';
- return `Hello Vegas Ski & Snowboarding Shuttle,\n\nI'd like to request availability for a mountain shuttle trip.\n\nName: ${val('name')}\nEmail: ${val('email')}\nPhone: ${val('phone')}\nDestination: ${val('destination')}\nPreferred travel date: ${dateLabel}\nNumber of riders: ${val('riders')}\nPreferred pickup area: ${val('pickup')}\nBringing skis / boards: ${val('gear')}\nAdditional details: ${val('message') || 'None'}\n\nPlease confirm availability, pickup details, full pricing, and applicable cancellation and promotion terms before any payment.\n\nThank you.`;
+ return `Hello Vegas Ski & Snowboarding Shuttle,\n\nI'd like to request availability for a mountain shuttle trip.\n\nName: ${val('name')}\nEmail: ${val('email')}\nPhone: ${val('phone')}\nDestination: ${val('destination')}\nPreferred travel date: ${dateLabel}\nNumber of riders: ${val('riders')}\nLee Canyon round-trip estimate (if applicable): ${tripPrice(val('riders'))} total\nPreferred pickup area: ${val('pickup')}\nBringing skis / boards: ${val('gear')}\nAdditional details: ${val('message') || 'None'}\n\nPlease confirm availability, pickup details, full pricing, and applicable cancellation and promotion terms before any payment.\n\nThank you.`;
 }
 function validateBooking(){
  const required = ['name','email','phone','tripDate'];
