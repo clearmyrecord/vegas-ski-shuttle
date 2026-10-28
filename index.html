@@ -152,8 +152,8 @@
    <div class="section-heading"><div><div class="eyebrow dark"><span class="eyebrow-line"></span> BEFORE YOU HIT THE SLOPES</div><h2 id="snow-report-title">OFFICIAL <span>SNOW REPORTS.</span></h2></div><p>Check snowfall, base depth, open lifts, trails and mountain operations directly with each resort before booking your ride. Weather forecasts above are not measured snow conditions.</p></div>
    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin:26px 0">
     <article style="background:white;border-radius:16px;padding:26px;box-shadow:0 4px 20px #10233112"><p style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#65717d">NEVADA · SPRING MOUNTAINS</p><h3>LEE CANYON</h3><p id="lee-snow-status" aria-live="polite">Loading official mountain operations…</p><div id="lee-snow-details" style="font-size:14px;line-height:1.8;margin-bottom:15px"></div><a href="https://www.leecanyonlv.com/weather/" target="_blank" rel="noopener noreferrer" style="color:#bb492f;font-weight:800;text-decoration:underline">VIEW SNOW REPORT ↗</a></article>
-    <article style="background:white;border-radius:16px;padding:26px;box-shadow:0 4px 20px #10233112"><p style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#65717d">UTAH · SOUTHERN UTAH</p><h3>BRIAN HEAD</h3><p>Official resort conditions, lifts and snow updates.</p><a href="https://www.brianhead.com/" target="_blank" rel="noopener noreferrer" style="color:#bb492f;font-weight:800;text-decoration:underline">VIEW SNOW REPORT ↗</a></article>
-    <article style="background:white;border-radius:16px;padding:26px;box-shadow:0 4px 20px #10233112"><p style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#65717d">ARIZONA · FLAGSTAFF</p><h3>ARIZONA SNOWBOWL</h3><p>Official resort conditions, lifts and snow updates.</p><a href="https://www.snowbowl.ski/" target="_blank" rel="noopener noreferrer" style="color:#bb492f;font-weight:800;text-decoration:underline">VIEW SNOW REPORT ↗</a></article>
+    <article style="background:white;border-radius:16px;padding:26px;box-shadow:0 4px 20px #10233112"><p style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#65717d">UTAH · SOUTHERN UTAH</p><h3>BRIAN HEAD</h3><p id="brian-snow-status" aria-live="polite">Checking latest resort snow report…</p><div id="brian-snow-details" style="font-size:14px;line-height:1.8;margin-bottom:15px"></div<p>Official resort conditions, lifts and snow updates.</p><a href="https://www.brianhead.com/weather-conditions-webcams/" target="_blank" rel="noopener noreferrer" style="color:#bb492f;font-weight:800;text-decoration:underline">VIEW SNOW REPORT ↗</a></article>
+    <article style="background:white;border-radius:16px;padding:26px;box-shadow:0 4px 20px #10233112"><p style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#65717d">ARIZONA · FLAGSTAFF</p><h3>ARIZONA SNOWBOWL</h3><p id="snowbowl-snow-status" aria-live="polite">Checking latest resort snow report…</p><div id="snowbowl-snow-details" style="font-size:14px;line-height:1.8;margin-bottom:15px"></div<p>Official resort conditions, lifts and snow updates.</p><a href="https://www.snowbowl.ski/the-mountain/weather-conditions-webcams/" target="_blank" rel="noopener noreferrer" style="color:#bb492f;font-weight:800;text-decoration:underline">VIEW SNOW REPORT ↗</a></article>
    </div>
    <p style="font-size:13px;color:#65717d">Snow depth and lift status are supplied by the resorts and may change throughout the day. <a href="weather.html" style="text-decoration:underline;font-weight:700">View the full mountain weather report ↗</a></p>
   </div>
@@ -237,6 +237,26 @@
   pieces.push('Checked: '+checked.toLocaleString());
   details.replaceChildren(...pieces.map((s,i)=>{const el=document.createElement('div');el.textContent=s;return el}));
  }).catch(()=>{status.textContent='Live report temporarily unavailable';details.textContent='Use the official Lee Canyon report link below.'});
+})();
+</script>
+<script>
+(function(){
+ const keys=['brian','snowbowl'];
+ fetch('data/resort-snow.json?cache='+Math.floor(Date.now()/900000))
+ .then(r=>{if(!r.ok)throw Error('No verified resort report yet');return r.json()})
+ .then(all=>keys.forEach(key=>{
+  const status=document.getElementById(key+'-snow-status'),details=document.getElementById(key+'-snow-details'),d=all[key];
+  if(!status||!details)return;
+  const at=d&&new Date(d.checked_at),age=at?Date.now()-at.getTime():Infinity;
+  if(!d?.verified||!Number.isFinite(age)||age<0||age>12*3600000){status.textContent='Current snow figures not yet verified';details.textContent='Open the official resort report below for the latest conditions.';return}
+  status.textContent='Resort-published snow conditions';
+  const format=x=>typeof x==='number'?x+' in':'Not reported';
+  const lines=['24-hour snowfall: '+format(d.snowfall_24h_inches),'48-hour snowfall: '+format(d.snowfall_48h_inches),'72-hour snowfall: '+format(d.snowfall_72h_inches),'Base depth: '+format(d.base_depth_inches),'Season total: '+format(d.season_total_inches)];
+  if(Number.isInteger(d.lifts_open)&&Number.isInteger(d.lifts_total))lines.push('Lifts open: '+d.lifts_open+'/'+d.lifts_total);
+  lines.push('Checked: '+at.toLocaleString());
+  details.replaceChildren(...lines.map(s=>{const e=document.createElement('div');e.textContent=s;return e}));
+ }))
+ .catch(()=>keys.forEach(key=>{const s=document.getElementById(key+'-snow-status');if(s)s.textContent='Live snow totals pending first refresh';const d=document.getElementById(key+'-snow-details');if(d)d.textContent='Use the official resort report below.'}));
 })();
 </script>
 </body>
