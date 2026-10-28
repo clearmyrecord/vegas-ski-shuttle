@@ -42,3 +42,8 @@ Open `index.html` in Chrome/Edge, or serve this folder (`python -m http.server 8
 - Image pages: https://unsplash.com/photos/ski-lift-over-snowy-mountain-and-trees-91UgLh4bexY and https://unsplash.com/photos/snowy-mountain-landscape-with-ski-slopes-and-ski-lifts-Fpoo3KyPcIc and https://unsplash.com/photos/snowy-mountain-landscape-with-ski-lift-and-skiers-rw0fpKnyslg
 
 Copyright 2026 Vegas Ski & Snowboarding Shuttle. Site design and text generated for the user. External imagery and fonts retain their respective licenses.
+
+
+## Destination and attraction photography
+
+The site now shows 8 local attraction cards and real location imagery for Lee Canyon, Brian Head and Arizona Snowbowl. Photo credits and each license/source link are published in `photo-credits.html`. Images are externally loaded from Wikimedia Commons thumbnails and the built-in local mountain SVG is retained as a network-error fallback. Attractions in the gallery are informational, not claimed shuttle stops.
