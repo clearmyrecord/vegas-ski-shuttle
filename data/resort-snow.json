@@ -1,0 +1,28 @@
+{
+  "brian": {
+    "source": "https://www.brianhead.com/weather-conditions-webcams/",
+    "checked_at": "2026-10-28T09:56:50+00:00",
+    "verified": true,
+    "snowfall_24h_inches": 0.0,
+    "snowfall_48h_inches": 0.0,
+    "snowfall_72h_inches": null,
+    "snowfall_7day_inches": 0.0,
+    "base_depth_inches": 0.0,
+    "season_total_inches": 6.0,
+    "lifts_open": null,
+    "lifts_total": null
+  },
+  "snowbowl": {
+    "source": "https://www.snowbowl.ski/the-mountain/weather-conditions-webcams/",
+    "checked_at": "2026-10-28T09:56:51+00:00",
+    "verified": true,
+    "snowfall_24h_inches": 0.0,
+    "snowfall_48h_inches": 0.0,
+    "snowfall_72h_inches": 6.0,
+    "snowfall_7day_inches": null,
+    "base_depth_inches": null,
+    "season_total_inches": 10.0,
+    "lifts_open": 0,
+    "lifts_total": 9
+  }
+}
