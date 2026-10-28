@@ -151,7 +151,7 @@
   <div class="container">
    <div class="section-heading"><div><div class="eyebrow dark"><span class="eyebrow-line"></span> BEFORE YOU HIT THE SLOPES</div><h2 id="snow-report-title">OFFICIAL <span>SNOW REPORTS.</span></h2></div><p>Check snowfall, base depth, open lifts, trails and mountain operations directly with each resort before booking your ride. Weather forecasts above are not measured snow conditions.</p></div>
    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin:26px 0">
-    <article style="background:white;border-radius:16px;padding:26px;box-shadow:0 4px 20px #10233112"><p style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#65717d">NEVADA · SPRING MOUNTAINS</p><h3>LEE CANYON</h3><p>Official resort conditions, lifts and snow updates.</p><a href="https://www.leecanyonlv.com/weather/" target="_blank" rel="noopener noreferrer" style="color:#bb492f;font-weight:800;text-decoration:underline">VIEW SNOW REPORT ↗</a></article>
+    <article style="background:white;border-radius:16px;padding:26px;box-shadow:0 4px 20px #10233112"><p style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#65717d">NEVADA · SPRING MOUNTAINS</p><h3>LEE CANYON</h3><p id="lee-snow-status" aria-live="polite">Loading official mountain operations…</p><div id="lee-snow-details" style="font-size:14px;line-height:1.8;margin-bottom:15px"></div><a href="https://www.leecanyonlv.com/weather/" target="_blank" rel="noopener noreferrer" style="color:#bb492f;font-weight:800;text-decoration:underline">VIEW SNOW REPORT ↗</a></article>
     <article style="background:white;border-radius:16px;padding:26px;box-shadow:0 4px 20px #10233112"><p style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#65717d">UTAH · SOUTHERN UTAH</p><h3>BRIAN HEAD</h3><p>Official resort conditions, lifts and snow updates.</p><a href="https://www.brianhead.com/" target="_blank" rel="noopener noreferrer" style="color:#bb492f;font-weight:800;text-decoration:underline">VIEW SNOW REPORT ↗</a></article>
     <article style="background:white;border-radius:16px;padding:26px;box-shadow:0 4px 20px #10233112"><p style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#65717d">ARIZONA · FLAGSTAFF</p><h3>ARIZONA SNOWBOWL</h3><p>Official resort conditions, lifts and snow updates.</p><a href="https://www.snowbowl.ski/" target="_blank" rel="noopener noreferrer" style="color:#bb492f;font-weight:800;text-decoration:underline">VIEW SNOW REPORT ↗</a></article>
    </div>
@@ -218,5 +218,26 @@
  </main>
  <footer class="site-footer"><div class="container"><div class="footer-main"><div class="footer-lead"><a href="#top" class="brand footer-brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 58 53" fill="none"><path d="M4 42 20 17l9 13L40 8l15 34" stroke="#F7FCFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="m30 24 10-16 9 24" stroke="#FF6744" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 49h51" stroke="#FF6744" stroke-width="5" stroke-linecap="round"/></svg></span><span class="brand-copy"><strong>VEGAS<span>SKI</span>SHUTTLE</strong><small>SKI & SNOWBOARDING TRANSPORTATION</small></span></a><p>THE PRICE IS A GAMBLE.<br>YOUR RIDE ISN'T.</p></div><div class="footer-links"><span>EXPLORE</span><a href="#destinations">Destinations</a><a href="#weather">Weather</a><a href="#local-attractions">Local sights</a><a href="#how-it-works">How it works</a><a href="#schedule">The day</a><a href="#faq">FAQs</a></div><div class="footer-links"><span>GET IN TOUCH</span><a href="tel:+17025088110">(702) 508-8110</a><a href="mailto:unitedpaintersww@gmail.com?subject=Vegas%20Ski%20Shuttle%20Question">Email our team</a><a href="#booking">Request availability</a></div></div><div class="footer-bottom"><span>© <span id="year">2026</span> VEGAS SKI & SNOWBOARDING SHUTTLE</span><span>INDEPENDENT TRANSPORTATION · NOT AFFILIATED WITH SKI RESORT OPERATORS</span><div><a href="privacy.html">PRIVACY</a><a href="terms.html">TERMS</a><a href="photo-credits.html">PHOTO CREDITS</a><a href="#top">BACK TO TOP ↑</a></div></div></div></footer>
  <div class="mobile-sticky" id="mobileSticky"><span>LEE CANYON <strong>$200</strong></span><a href="#booking">REQUEST A SEAT ↗</a></div>
+<script>
+(function(){
+ const status=document.getElementById('lee-snow-status'),details=document.getElementById('lee-snow-details');
+ if(!status||!details)return;
+ fetch('data/lee-canyon-snow.json?cache='+Math.floor(Date.now()/900000))
+ .then(r=>{if(!r.ok)throw Error('Report unavailable');return r.json()})
+ .then(d=>{
+  const checked=new Date(d.checked_at);
+  const age=Date.now()-checked.getTime();
+  if(!Number.isFinite(age)||age>36*3600000||age<0){status.textContent='Latest verified report unavailable';details.textContent='Check the official Lee Canyon report for current conditions.';return}
+  status.textContent=d.season||'Mountain operations';
+  const pieces=[];
+  if(Number.isInteger(d.lifts_open)&&Number.isInteger(d.lifts_total))pieces.push('Lifts: '+d.lifts_open+' / '+d.lifts_total);
+  if(Number.isInteger(d.trails_open)&&Number.isInteger(d.trails_total))pieces.push('Trails: '+d.trails_open+' / '+d.trails_total);
+  pieces.push('Ski base depth: '+(d.ski_base_inches==null?'Not reported':d.ski_base_inches+' in'));
+  pieces.push('24h snowfall: '+(d.snowfall_24h_inches==null?'Not reported':d.snowfall_24h_inches+' in'));
+  pieces.push('Checked: '+checked.toLocaleString());
+  details.replaceChildren(...pieces.map((s,i)=>{const el=document.createElement('div');el.textContent=s;return el}));
+ }).catch(()=>{status.textContent='Live report temporarily unavailable';details.textContent='Use the official Lee Canyon report link below.'});
+})();
+</script>
 </body>
 </html>
