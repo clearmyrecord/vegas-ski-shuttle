@@ -1,7 +1,7 @@
 'use strict';
 // This static site intentionally takes no payment, does not store personal information,
 // and does not claim to provide live inventory. Email drafts are composed on the visitor's device.
-const BOOKING_EMAIL = 'Booking@VegasSkiShuttle.com'; // Branded booking inbox; verify it can receive incoming inquiries.
+const BOOKING_EMAIL = 'Booking@ski.vegas'; // Booking inbox for ski.vegas; send test inquiries before relying on it.
 const $ = id => document.getElementById(id);
 const menuToggle = $('menuToggle');
 const mobileNav = $('mobileNav');
