@@ -8,7 +8,7 @@ FILES:
 Upload all three files to the ROOT of the public GitHub repository:
 https://github.com/clearmyrecord/vegas-ski-shuttle
 
-Then visit https://vegasskishuttle.com/weather.html once the domain's DNS/HTTPS configuration is resolved.
+Then visit https://ski.vegas/weather.html once the domain's DNS/HTTPS configuration is resolved.
 The standalone weather page does not replace your existing homepage or booking features.
 
 To add a navigation link on the homepage, add:
