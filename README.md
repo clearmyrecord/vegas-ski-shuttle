@@ -1,6 +1,6 @@
 # Vegas Ski & Snowboarding Shuttle — Website Rebuild
 
-A complete lightweight responsive static website for VegasSkiShuttle.com.
+A complete lightweight responsive static website for ski.vegas.
 
 ## What's included
 
