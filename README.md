@@ -18,7 +18,7 @@ Open `index.html` in Chrome/Edge, or serve this folder (`python -m http.server 8
 ## Critical before publishing
 
 1. **Verify operations and insurance**: This is a booking-INQUIRY site, not an automated paid booking system. Do not treat inquiries as paid, accepted or guaranteed reservations. Confirm operating authority, vehicle, safety, pickup arrangements and any required transportation regulatory compliance before selling rides.
-2. **Verify contact**: The booking form, footer, and privacy contact now use `Booking@VegasSkiShuttle.com`. A branded booking address reportedly bounced previously, so send a real test inquiry and confirm it arrives before relying on this address for bookings. Verify the business number `(702) 508-8110` remains active.
+2. **Verify contact**: The booking form, footer, and privacy contact now use `Booking@ski.vegas`. A branded booking address reportedly bounced previously, so send a real test inquiry and confirm it arrives before relying on this address for bookings. Verify the business number `(702) 508-8110` remains active.
 3. **Resolve promotion**: The brand tagline and $50-back promotional concept are shown, but the offer's qualifying terms are unknown. Publish written eligibility and redemption terms before taking payments; do not represent $50 back as automatically guaranteed. Consider gambling/sweepstakes legal review if the promotion uses chance or paid entry.
 4. **Confirm itinerary**: Lee Canyon 8 AM departure and 5 PM mountain departure are the business plan; confirm meeting point, actual trip availability and season opening before accepting reservations.
 5. **Resort tickets**: The price is for transportation only in this rebuild; current/previous live website listed lunch, tracking, etc., but these services are intentionally NOT promised here absent confirmation. Brian Head and Arizona Snowbowl are offered as quote requests because the standard Lee Canyon schedule cannot apply to those longer distances.
@@ -37,7 +37,7 @@ Open `index.html` in Chrome/Edge, or serve this folder (`python -m http.server 8
 
 ## Public sources consulted
 
-- Existing live site: https://vegasskishuttle.com/
+- Existing live site: https://ski.vegas/
 - Lee Canyon: https://www.leecanyonlv.com/ and https://www.leecanyonlv.com/skiing-snowboarding-faq/
 - Image pages: https://unsplash.com/photos/ski-lift-over-snowy-mountain-and-trees-91UgLh4bexY and https://unsplash.com/photos/snowy-mountain-landscape-with-ski-slopes-and-ski-lifts-Fpoo3KyPcIc and https://unsplash.com/photos/snowy-mountain-landscape-with-ski-lift-and-skiers-rw0fpKnyslg
 
