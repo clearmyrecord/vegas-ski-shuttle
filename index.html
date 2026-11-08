@@ -23,8 +23,8 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preconnect" href="https://images.unsplash.com">
  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="style-weather-v2.css">
- <script src="script-weather-v2.js?v=20261027-fix" defer></script>
+ <link rel="stylesheet" href="style-weather-v2.css?v=20261107-rain">
+ <script src="script-weather-v2.js?v=20261107-rain" defer></script>
  <title>Las Vegas to Lee Canyon Ski Shuttle | Vegas Ski Shuttle</title>
 </head>
 <body>
@@ -212,6 +212,8 @@
  <div class="field-row"><label>PREFERRED PICKUP AREA<select id="pickup" name="pickup"><option value="Las Vegas Strip">Las Vegas Strip</option><option value="Downtown Las Vegas">Downtown Las Vegas</option><option value="Henderson">Henderson</option><option value="Other Las Vegas Valley location">Other Las Vegas Valley location</option></select></label><label>BRINGING SKIS / BOARDS?<select id="gear" name="gear"><option value="Yes">Yes</option><option value="No">No</option><option value="Not sure">Not sure yet</option></select></label></div>
  <label class="wide-label">ANYTHING WE SHOULD KNOW?<textarea name="message" id="message" rows="3" placeholder="Hotel, pickup details, group questions, promotional offer inquiry…"></textarea></label>
  <div id="rateEstimate" class="rate-estimate" aria-live="polite"><span>LEE CANYON REFERENCE RATE</span><strong>$200 <small>/ round trip · up to 2 people</small></strong></div>
+ <div class="rain-advisory" role="note" aria-labelledby="rainWarningTitle"><div class="rain-advisory-heading"><span aria-hidden="true">☔</span><strong id="rainWarningTitle">RAIN &amp; WEATHER ADVISORY</strong></div><p>Check the forecast for your destination and travel date before requesting a ride. Rain can occur in the mountains, even during ski season. Vegas Ski &amp; Snowboarding Shuttle provides transportation and is not responsible for rain, insufficient snow, or unfavorable weather at the destination. Weather-related changes, cancellations, and refunds are governed by the booking terms provided before payment.</p><a href="#weather">CHECK THE MOUNTAIN FORECAST <span aria-hidden="true">↗</span></a></div>
+ <label class="consent weather-consent"><input id="weatherConsent" type="checkbox" required><span>I understand that I am responsible for checking the destination forecast and that Vegas Ski &amp; Snowboarding Shuttle is not responsible for rainy or unfavorable mountain weather. <b>*</b></span></label>
  <label class="consent"><input id="consent" type="checkbox" required><span>I understand this sends an inquiry, not a confirmed reservation. The next step opens an email draft that I must send. <b>*</b></span></label>
  <button type="submit" class="form-submit">PREPARE MY BOOKING REQUEST <span>↗</span></button>
  <p id="formFeedback" class="form-feedback" role="status" aria-live="polite">Your email app will open with the request filled in. You must press Send to complete your inquiry. If it does not open, use Copy Request Details below.</p>
