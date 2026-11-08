@@ -59,3 +59,11 @@
 .weather-footnote strong{color:#e5f0f6}
 @media(max-width:1100px){.weather-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.weather-card h3{font-size:24px}.weather-temp{font-size:50px}}
 @media(max-width:620px){.weather-heading{display:block}.weather-heading h2{font-size:clamp(38px,9vw,54px)}.weather-heading>p{margin-top:16px}.weather-grid{grid-template-columns:1fr;gap:13px}.weather-card{padding:20px 19px}.weather-card-heading{min-height:54px}.weather-card h3{font-size:23px}.weather-current{margin:20px 0 7px}.weather-temp{font-size:49px}.weather-days{min-height:0}.weather-actions{align-items:flex-start;flex-wrap:wrap;gap:11px}.weather-actions p{flex-basis:100%}.weather-footnote{font-size:11px}}
+
+/* Booking-form rain advisory and required weather acknowledgment */
+.rain-advisory{background:#fff5ea;border-left:4px solid #d86a30;padding:17px 19px;margin-top:20px;color:#243d4d}
+.rain-advisory-heading{display:flex;align-items:center;gap:9px;font-family:"Outfit",sans-serif;font-weight:900;font-size:12px;letter-spacing:.045em}
+.rain-advisory-heading span{font-size:20px;line-height:1}
+.rain-advisory p{font-family:"DM Sans",sans-serif;font-size:12px;line-height:1.65;margin:10px 0;color:#334f5e}
+.rain-advisory a{font-family:"Outfit",sans-serif;font-weight:900;font-size:11px;letter-spacing:.035em;color:#12688e;text-decoration:underline;text-underline-offset:3px}
+.weather-consent{margin-top:15px;margin-bottom:8px}
