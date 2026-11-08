@@ -62,7 +62,7 @@ function getRequestText(){
  const data = new FormData(bookingForm);
  const val = name => String(data.get(name) || '').trim();
  const dateLabel = val('tripDate') ? new Date(`${val('tripDate')}T12:00:00`).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}) : '(not selected)';
- return `Hello Vegas Ski & Snowboarding Shuttle,\n\nI'd like to request availability for a mountain shuttle trip.\n\nName: ${val('name')}\nEmail: ${val('email')}\nPhone: ${val('phone')}\nDestination: ${val('destination')}\nPreferred travel date: ${dateLabel}\nNumber of riders: ${val('riders')}\nLee Canyon round-trip estimate (if applicable): ${tripPrice(val('riders'))} total\nPreferred pickup area: ${val('pickup')}\nBringing skis / boards: ${val('gear')}\nAdditional details: ${val('message') || 'None'}\n\nPlease confirm availability, pickup details, full pricing, and applicable cancellation and promotion terms before any payment.\n\nThank you.`;
+ return `Hello Vegas Ski & Snowboarding Shuttle,\n\nI'd like to request availability for a mountain shuttle trip.\n\nName: ${val('name')}\nEmail: ${val('email')}\nPhone: ${val('phone')}\nDestination: ${val('destination')}\nPreferred travel date: ${dateLabel}\nNumber of riders: ${val('riders')}\nLee Canyon round-trip estimate (if applicable): ${tripPrice(val('riders'))} total\nPreferred pickup area: ${val('pickup')}\nBringing skis / boards: ${val('gear')}\nAdditional details: ${val('message') || 'None'}\n\nRain/weather advisory: Acknowledged — I am responsible for checking the destination forecast and understand that the shuttle is not responsible for rainy or unfavorable mountain weather.\n\nPlease confirm availability, pickup details, full pricing, and applicable cancellation and promotion terms before any payment.\n\nThank you.`;
 }
 function validateBooking(){
  const required = ['name','email','phone','tripDate'];
@@ -71,6 +71,7 @@ function validateBooking(){
  if (!el.value.trim() || !el.checkValidity()) { el.focus(); el.reportValidity(); feedback.textContent = 'Please complete the required information before continuing.'; feedback.classList.add('error'); return false; }
  }
  if ($('tripDate').value < dateMin) { $('tripDate').focus(); feedback.textContent='Please select a future winter travel date.'; feedback.classList.add('error'); return false; }
+ if (!$('weatherConsent').checked){ $('weatherConsent').focus(); $('weatherConsent').reportValidity(); feedback.textContent='Please acknowledge the rain and mountain weather advisory before continuing.'; feedback.classList.add('error'); return false; }
  if (!$('consent').checked){ $('consent').focus(); $('consent').reportValidity(); feedback.textContent='Please acknowledge this is an inquiry rather than a confirmed booking.';feedback.classList.add('error');return false; }
  feedback.classList.remove('error');return true;
 }
