@@ -1,7 +1,7 @@
 {
   "brian": {
     "source": "https://www.brianhead.com/weather-conditions-webcams/",
-    "checked_at": "2026-11-18T01:11:01+00:00",
+    "checked_at": "2026-11-18T12:05:58+00:00",
     "verified": true,
     "snowfall_24h_inches": 3.0,
     "snowfall_48h_inches": 3.0,
@@ -14,7 +14,7 @@
   },
   "snowbowl": {
     "source": "https://www.snowbowl.ski/the-mountain/weather-conditions-webcams/",
-    "checked_at": "2026-11-18T01:11:02+00:00",
+    "checked_at": "2026-11-18T12:05:58+00:00",
     "verified": true,
     "snowfall_24h_inches": 0.0,
     "snowfall_48h_inches": 0.0,
