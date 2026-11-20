@@ -67,3 +67,21 @@
 .rain-advisory p{font-family:"DM Sans",sans-serif;font-size:12px;line-height:1.65;margin:10px 0;color:#334f5e}
 .rain-advisory a{font-family:"Outfit",sans-serif;font-weight:900;font-size:11px;letter-spacing:.035em;color:#12688e;text-decoration:underline;text-underline-offset:3px}
 .weather-consent{margin-top:15px;margin-bottom:8px}
+
+/* Five-day shuttle and lift-pass pricing */
+.pricing-pass-callout{display:flex;align-items:center;justify-content:space-between;gap:24px;background:#0a1627;color:#f7fcff;border-radius:18px;padding:28px 32px;margin:28px 0 20px}
+.pricing-pass-callout>div{max-width:760px}
+.pricing-kicker{font:800 12px "Outfit",sans-serif;letter-spacing:.12em;color:#ff9b80}
+.pricing-pass-callout h3{font:900 clamp(34px,5vw,54px) "Outfit",sans-serif;line-height:1;margin:11px 0}
+.pricing-pass-callout h3 small{font-size:.44em;font-weight:700}
+.pricing-pass-callout p{font-size:15px;line-height:1.65;color:#c7d7e2;margin:0}
+.pricing-pass-callout>a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 19px;background:#ff6744;color:#101d2d;font:900 12px "Outfit",sans-serif;letter-spacing:.05em;text-decoration:none;white-space:nowrap}
+.pricing-table-wrap{overflow-x:auto;background:#fff;border:1px solid #d7e2e8;border-radius:14px}
+.pricing-table{width:100%;border-collapse:collapse;min-width:720px;text-align:left}
+.pricing-table th,.pricing-table td{padding:16px 18px;border-bottom:1px solid #e3ebef;font-size:15px}
+.pricing-table thead th{background:#eaf2f4;color:#385063;font:800 11px "Outfit",sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.pricing-table tbody th{font-weight:800;color:#102331}
+.pricing-table tbody td{font-variant-numeric:tabular-nums;color:#263f50}
+.pricing-table tbody tr:last-child th,.pricing-table tbody tr:last-child td{border-bottom:0}
+.pricing-note{font-size:13px;line-height:1.7;color:#526875;margin:15px 0 0}
+@media(max-width:620px){.pricing-pass-callout{display:block;padding:23px 21px}.pricing-pass-callout>a{margin-top:18px}.pricing-table th,.pricing-table td{padding:13px 14px}}
