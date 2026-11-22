@@ -23,7 +23,16 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preconnect" href="https://images.unsplash.com">
  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="style-weather-v2.css?v=20261120-pricing">
+ <link rel="stylesheet" href="style-weather-v2.css?v=20261121-hosted-shows">
+ <style>
+ .hero-show-promo{display:flex;flex-direction:column;gap:6px;max-width:570px;margin:20px 0 20px;padding:14px 18px;background:#ff7652;color:#071d30;border-left:5px solid #fff;box-shadow:0 8px 28px #07142135;text-decoration:none}
+ .hero-show-promo .hero-show-label{font:900 9px "Outfit",sans-serif;letter-spacing:.12em;color:#0b2b41}
+ .hero-show-promo strong{font:900 clamp(15px,2vw,22px)/1.16 "Outfit",sans-serif;letter-spacing:-.025em;color:#0d273a}
+ .hero-show-promo strong span{font-size:21px}
+ .hero-show-promo small{font:700 10px/1.4 "DM Sans",sans-serif;color:#172f43}
+ .hero-show-promo:hover,.hero-show-promo:focus-visible{background:#fff}
+ @media(max-width:620px){.hero-show-promo{margin:13px 0 15px;padding:10px 13px;max-width:365px}.hero-show-promo strong{font-size:15px}.hero-show-promo .hero-show-label{font-size:8px}.hero-show-promo small{font-size:9px}}
+ </style>
  <style>
  /* Entertainment feature: no ticket offer is active without written partner authorization. */
  .shows-teaser{background:#101f31;color:#fff;position:relative;overflow:hidden}
@@ -42,7 +51,7 @@
  .shows-teaser .shows-note{font-size:12px;color:#b1c4ce;margin-top:17px;max-width:760px}
  @media(max-width:760px){.shows-teaser .shows-inner{grid-template-columns:1fr}.shows-teaser .shows-art{min-height:175px;transform:none;padding:22px}.shows-teaser .shows-art-icon{font-size:42px}.shows-teaser h2{font-size:clamp(42px,11vw,64px)}}
  </style>
- <script src="script-weather-v2.js?v=20261107-rain" defer></script>
+ <script src="script-weather-v2.js?v=20261121-hosted-shows" defer></script>
  <title>Las Vegas to Lee Canyon Ski Shuttle | Vegas Ski Shuttle</title>
 </head>
 <body>
@@ -63,6 +72,7 @@
  <a href="#destinations">Destinations</a>
  <a href="#pricing">Pricing</a>
  <a href="#weather">Weather</a>
+ <a href="#vegas-shows">Show perks</a>
  <a href="#how-it-works">How it works</a>
  <a href="#schedule">The day</a>
  <a href="#faq">FAQs</a>
@@ -83,6 +93,7 @@
  <div class="eyebrow light"><span class="eyebrow-line"></span> LAS VEGAS, MEET THE MOUNTAINS</div>
  <h1 id="hero-heading">LAS VEGAS TO<br><em>LEE CANYON</em><br><span>SKI SHUTTLE.</span></h1>
  <p class="hero-description">Big mountain energy. No rental car headaches or tire-chain shopping. When mountain chain restrictions are in effect, leave the driving and traction-equipment planning to us.</p>
+ <a class="hero-show-promo" href="#vegas-shows"><span class="hero-show-label">★ VEGAS AFTER DARK · GUEST PERK IN DEVELOPMENT</span><strong>ASK ABOUT FREE SHOW GUEST INVITATIONS <span aria-hidden="true">↗</span></strong><small>Host-attended outings only · Pending provider approval · Not included with transportation</small></a>
  <div class="hero-buttons"><a class="btn btn-orange" href="#booking">PLAN MY RIDE <span>↗</span></a><a class="btn btn-ghost" href="#how-it-works"><span class="play-icon">▶</span> HOW IT WORKS</a></div>
  <div class="hero-micro"><span class="micro-symbol">✳</span> BUILT FOR SKIERS, BOARDERS & SNOW-CHASERS</div>
  </div>
@@ -273,6 +284,7 @@
  <label class="wide-label">ANYTHING WE SHOULD KNOW?<textarea name="message" id="message" rows="3" placeholder="Hotel, pickup details, group questions, promotional offer inquiry…"></textarea></label>
  <div id="rateEstimate" class="rate-estimate" aria-live="polite"><span>LEE CANYON REFERENCE RATE</span><strong>$200 <small>/ round trip · up to 2 people</small></strong></div>
  <div class="rain-advisory" role="note" aria-labelledby="rainWarningTitle"><div class="rain-advisory-heading"><span aria-hidden="true">☔</span><strong id="rainWarningTitle">RAIN &amp; WEATHER ADVISORY</strong></div><p>Check the forecast for your destination and travel date before requesting a ride. Rain can occur in the mountains, even during ski season. Vegas Ski &amp; Snowboarding Shuttle provides transportation and is not responsible for rain, insufficient snow, or unfavorable weather at the destination. Weather-related changes, cancellations, and refunds are governed by the booking terms provided before payment.</p><a href="#weather">CHECK THE MOUNTAIN FORECAST <span aria-hidden="true">↗</span></a></div>
+ <label class="consent" style="margin:16px 0 12px"><input id="showInterest" type="checkbox" name="showInterest" value="yes"><span><strong>I'm interested in a complimentary, host-attended Las Vegas show outing.</strong> This is a request for future information only. No show tickets are included with the shuttle, and invitations are pending provider approval and event availability.</span></label>
  <label class="consent weather-consent"><input id="weatherConsent" type="checkbox" required><span>I understand that I am responsible for checking the destination forecast and that Vegas Ski &amp; Snowboarding Shuttle is not responsible for rainy or unfavorable mountain weather. <b>*</b></span></label>
  <label class="consent"><input id="consent" type="checkbox" required><span>I understand this sends an inquiry, not a confirmed reservation. The next step opens an email draft that I must send. <b>*</b></span></label>
  <button type="submit" class="form-submit">PREPARE MY BOOKING REQUEST <span>↗</span></button>
