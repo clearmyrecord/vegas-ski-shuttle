@@ -1,10 +1,10 @@
 {
   "source": "https://www.leecanyonlv.com/weather/",
-  "checked_at": "2026-11-27T08:40:53+00:00",
+  "checked_at": "2026-11-27T21:21:57+00:00",
   "season": "Fall mountain-bike operations",
-  "lifts_open": 3,
+  "lifts_open": 4,
   "lifts_total": 7,
-  "trails_open": 6,
+  "trails_open": 8,
   "trails_total": 35,
   "ski_base_inches": null,
   "snowfall_24h_inches": null,
